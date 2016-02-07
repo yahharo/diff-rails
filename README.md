@@ -1,2 +1,2 @@
 # diff-rails
-diff rails entire code
+diff codes made by rails.
