@@ -10,17 +10,12 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_item_url
-    assert_response :success
-  end
-
   test "should create item" do
     assert_difference('Item.count') do
       post items_url, params: { item: { count: @item.count, latitude: @item.latitude, name: @item.name } }
     end
 
-    assert_redirected_to item_path(Item.last)
+    assert_response 201
   end
 
   test "should show item" do
@@ -28,14 +23,9 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_item_url(@item)
-    assert_response :success
-  end
-
   test "should update item" do
     patch item_url(@item), params: { item: { count: @item.count, latitude: @item.latitude, name: @item.name } }
-    assert_redirected_to item_path(@item)
+    assert_response 200
   end
 
   test "should destroy item" do
@@ -43,6 +33,6 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       delete item_url(@item)
     end
 
-    assert_redirected_to items_path
+    assert_response 204
   end
 end
